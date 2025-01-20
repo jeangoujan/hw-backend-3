@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+</head>
+<body>
+    <h2>Список машин:</h2>
+    <ul>
+        {% for car in cars %}
+            <li>
+                <h3>Автомобиль: {{ car.name }}<br> Год выпуска: {{ car.year }}г. </h3>
+                </li>
+        {% else %}
+            <li class="no_comments">Машин нет</li>
+        {% endfor %}
+    </ul>
+
+
+    <form action="/cars/new" method="get">
+        <button type="submit">Добавить автомобиль</button>
+    </form>
+    <br>
+    <form action="/cars/search" method="get">
+        <button type="submit">Найти автомобиль</button>
+    </form>
+</body>
+</html>

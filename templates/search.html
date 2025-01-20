@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск автомобиля</title>
+</head>
+<body>
+    <form action="/cars/search" method="get">
+        <input type="search" name="q" value="{{ q }}" required />
+        <input type="submit" value="Поиск">
+    </form>
+    <h2>Список машин:</h2>
+    <ul>
+        {% for car in cars %}
+            <li>
+                <h3>Автомобиль: {{ car.name }}<br> Год выпуска: {{ car.year }}г. </h3>
+                </li>
+        {% else %}
+            <li class="no_comments">Машин нет</li>
+        {% endfor %}
+    </ul>
+
+    <form action="/cars" method="get">
+        <button type="submit">Перейти на главную</button>
+    </form>
+</body>
+</html>
